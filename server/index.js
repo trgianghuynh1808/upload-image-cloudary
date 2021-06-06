@@ -39,6 +39,21 @@ app.post("/api/upload", async (req, res) => {
   }
 });
 
+app.post("/api/remove", async (req, res) => {
+  try {
+    const image = req.body.image;
+    await cloudinary.uploader.destroy(image, (err, result) => {
+      console.log({ err });
+      console.log({ result });
+    });
+
+    res.json({ msg: "Remove Success" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ err: "Somethings went wrong" });
+  }
+});
+
 const port = process.env.PORT || "3002";
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
