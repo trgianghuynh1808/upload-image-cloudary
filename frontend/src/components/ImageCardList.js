@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Image, Toast, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 import LoadingSpinners from "./LoadingSpinners";
 import ImageCard from "./ImageCard";

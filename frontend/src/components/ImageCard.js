@@ -17,6 +17,20 @@ const ImageCard = ({ image, showMsgToast }) => {
     copyUrlToClipboard(image.url);
   };
 
+  const removeImage = async (image) => {
+    try {
+      await fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/remove`, {
+        method: "POST",
+        body: JSON.stringify({ image: image.publicId }),
+        headers: { "Content-type": "application/json" },
+      });
+
+      showMsgToast(`${image.publicId} removed`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     image && (
       <Card>
@@ -35,7 +49,13 @@ const ImageCard = ({ image, showMsgToast }) => {
           >
             Copy Url
           </Card.Link>
-          <Card.Link href="#" className="text-secondary">
+          <Card.Link
+            href="#"
+            className="text-secondary"
+            onClick={() => {
+              removeImage(image);
+            }}
+          >
             Remove Image
           </Card.Link>
         </Card.Body>

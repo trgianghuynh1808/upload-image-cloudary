@@ -5,11 +5,11 @@ const LoadingSpinners = () => {
   return (
     <Container style={styles.container}>
       <Row className="justify-content-md-center">
-        <Spinner animation="grow" variant="primary" />
-        <Spinner animation="grow" variant="secondary" />
-        <Spinner animation="grow" variant="success" />
-        <Spinner animation="grow" variant="danger" />
-        <Spinner animation="grow" variant="warning" />
+        <Spinner className="mr-2" animation="grow" variant="primary" />
+        <Spinner className="mr-2" animation="grow" variant="secondary" />
+        <Spinner className="mr-2" animation="grow" variant="success" />
+        <Spinner className="mr-2" animation="grow" variant="danger" />
+        <Spinner className="mr-2" animation="grow" variant="warning" />
         <Spinner animation="grow" variant="info" />
       </Row>
     </Container>
